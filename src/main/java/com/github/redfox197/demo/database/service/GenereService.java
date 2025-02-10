@@ -10,7 +10,7 @@ import com.github.redfox197.demo.database.repository.GenereRepo;
 public class GenereService {
 
     @Autowired
-    private GenereRepo genereRepo; 
+    private GenereRepo genereRepo;
 
     public void save(Genere genere) {
         genereRepo.save(genere);
@@ -19,10 +19,12 @@ public class GenereService {
     public void delete(Genere genere) {
         genereRepo.delete(genere);
     }
+
     public Genere findById(long id) {
         return genereRepo.findById(id).orElse(null);
     }
-    public List <Genere> findAll() {
-       return genereRepo.findAll();
+
+    public List<Genere> findAll() {
+        return genereRepo.findAll();
     }
 }
