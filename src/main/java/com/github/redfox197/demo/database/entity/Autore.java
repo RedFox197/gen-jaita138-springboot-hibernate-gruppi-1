@@ -55,4 +55,10 @@ public class Autore {
     public void setLibri(ArrayList<Libro> libri) {
         this.libri = libri;
     }
+    @Override
+    public String toString() {
+        return "Autore [id=" + id + ", nome=" + nome + ", cognome=" + cognome + ", nazionalita=" + nazionalita
+                + ", libri=" + libri + "]";
+    }
+    
 }
