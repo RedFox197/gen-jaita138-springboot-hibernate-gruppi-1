@@ -3,10 +3,12 @@ package com.github.redfox197.demo.database.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.github.redfox197.demo.database.entity.Genere;
 import com.github.redfox197.demo.database.repository.GenereRepo;
 
+@Service
 public class GenereService {
 
     @Autowired
