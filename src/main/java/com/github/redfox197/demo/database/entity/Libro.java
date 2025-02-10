@@ -29,6 +29,22 @@ public class Libro {
     @ManyToMany (mappedBy="libri")
     private List<Genere> generi;
 
+    public List<Genere> getGeneri() {
+        return generi;
+    }
+
+    public void setGeneri(List<Genere> generi) {
+        this.generi = generi;
+    }
+
+    public Autore getAutore() {
+        return autore;
+    }
+
+    public void setAutore(Autore autore) {
+        this.autore = autore;
+    }
+
     @ManyToOne
     private Autore autore;
 
@@ -67,8 +83,10 @@ public class Libro {
     @Override
     public String toString() {
         return "Libro [id=" + id + ", titolo=" + titolo + ", annoPublicazione=" + annoPublicazione + ", IBSN=" + IBSN
-                + ", autore=" + autore + "]";
+                + ", generi=" + generi + ", autore=" + autore + "]";
     }
+
+    
 
     
 }
