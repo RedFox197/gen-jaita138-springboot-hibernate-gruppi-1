@@ -144,16 +144,23 @@ public class CliManager {
             return;
         }
 
-        // TODO può inserire più generi
-        System.out.println("Imposta genere per il libro");
-        leggiTuttiGeneri();
+        while (true) {
+            System.out.println("Imposta genere per il libro");
+            leggiTuttiGeneri();
 
-        System.out.print("Genere id: ");
-        Genere genere = genereService.findById(scanner.nextLong());
-        scanner.nextLine();
-        if (genere == null) {
-            System.out.println("Genere non trovato!");
-            return;
+            System.out.println("Vuoi aggiungere un genere? (y/n)");
+            if (!scanner.nextLine().equalsIgnoreCase("y"))
+                break;
+
+            System.out.print("Genere id: ");
+            Genere genere = genereService.findById(scanner.nextLong());
+            scanner.nextLine();
+            if (genere == null) {
+                System.out.println("Genere non trovato!");
+                continue;
+            }
+
+            libro.getGeneri().add(genere);
         }
 
         libroService.save(libro);
