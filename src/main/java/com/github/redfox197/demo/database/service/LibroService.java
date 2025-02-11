@@ -2,17 +2,16 @@ package com.github.redfox197.demo.database.service;
 
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.github.redfox197.demo.database.entity.Libro;
 import com.github.redfox197.demo.database.repository.LibroRepo;
 
-// TODO fare un metodo findAll che carica anche l'autore, ma non i generi
-// TODO fare un metodo findAll che carica sia autore che genere
-// TODO fare un metodo per avere tutti i libri che iniziano con la p (usando la query method della repo)
-// TODO come coso sopra, da fare anche per libri prodotti fra 2000 e 2020
-// TODO come coso sopra, da fare metodo per libro con isbn 978-3-16-148410-0
+import jakarta.transaction.Transactional;
+
+
 @Service
 public class LibroService {
 
@@ -33,6 +32,40 @@ public class LibroService {
 
     public Libro findById(Long id) {
         return libroRepo.findById(id).orElse(null);
+    }
+
+    @Transactional
+    public List<Libro> findConGenere(){
+        List<Libro> libri= libroRepo.findAll();
+      for (Libro elemento : libri) {
+        Hibernate.initialize(elemento.getGeneri());
+        
+      }
+      return libri;
+    }
+
+    @Transactional
+    public List<Libro> findTutto(){
+        List<Libro> libri= libroRepo.findAll();
+      for (Libro elemento : libri) {
+        Hibernate.initialize(elemento.getGeneri());
+        Hibernate.initialize(elemento.getAutore());
+        
+      }
+      return libri;
+    }
+
+    public List<Libro> trovaPerP(){
+        return libroRepo.findByTitoloStartingWithIgnoreCase("P");
+        
+    }
+
+    public List<Libro> trovaTraAnni(){
+        return libroRepo.findByAnnoPublicazioneBetween(2000,2020);
+    }
+
+    public List<Libro> trovaIBSN(){
+        return libroRepo.findByIBSNIgnoreCase("978-3-16-148410-0");
     }
 
 }
