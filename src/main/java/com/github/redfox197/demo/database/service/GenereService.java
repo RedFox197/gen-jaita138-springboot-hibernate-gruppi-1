@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.github.redfox197.demo.database.entity.Genere;
 import com.github.redfox197.demo.database.repository.GenereRepo;
 
+// TODO fare un findall che carica anche i libri
 @Service
 public class GenereService {
 

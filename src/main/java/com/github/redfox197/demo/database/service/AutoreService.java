@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.github.redfox197.demo.database.entity.Autore;
 import com.github.redfox197.demo.database.repository.AutoreRepo;
 
+// TODO fare un find all che carica anche i libri
 @Service
 public class AutoreService {
 
