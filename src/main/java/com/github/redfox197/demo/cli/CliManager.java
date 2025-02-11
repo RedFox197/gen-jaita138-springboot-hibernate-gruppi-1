@@ -76,11 +76,11 @@ public class CliManager {
     }
 
     public void leggiTuttiLibriConAutore() {
-        // TODO implementare
+        // TODO implementare Dominic
     }
 
     public void leggiTuttiLibriConAutoreEGeneri() {
-        // TODO implementare
+        // TODO implementare Dominic
     }
 
     public void leggiTuttiAutori() {
@@ -161,23 +161,23 @@ public class CliManager {
     }
 
     public void cercaLibriTitolo() {
-        // TODO implementare
+        // TODO implementare Dominic
     }
 
     public void cercaLibriAnno() {
-        // TODO implementare
+        // TODO implementare Leo
     }
 
     public void cercaLibriISBN() {
-        // TODO implementare
+        // TODO implementare Leo
     }
 
     public void leggiAutoriConLibri() {
-        // TODO implementare
+        // TODO implementare Leo
     }
 
     public void leggiGeneriConLibri() {
-        // TODO implementare
+        // TODO implementare Leo
     }
 
 }
