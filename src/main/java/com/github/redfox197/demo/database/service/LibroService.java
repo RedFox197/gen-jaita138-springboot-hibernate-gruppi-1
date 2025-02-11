@@ -19,19 +19,19 @@ public class LibroService {
     @Autowired
     LibroRepo libroRepo;
 
-    public List<Libro> findall(){
+    public List<Libro> findAll() {
         return libroRepo.findAll();
     }
 
-    public void save(Libro libro){
+    public void save(Libro libro) {
         libroRepo.save(libro);
     }
 
-    public void delete(Libro libro){
+    public void delete(Libro libro) {
         libroRepo.delete(libro);
     }
 
-    public Libro findbyid(Long id){
+    public Libro findById(Long id) {
         return libroRepo.findById(id).orElse(null);
     }
 

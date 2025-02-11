@@ -1,6 +1,5 @@
 package com.github.redfox197.demo.database.entity;
 
-
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -10,7 +9,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-
 
 @Entity
 public class Libro {
@@ -26,7 +24,10 @@ public class Libro {
     @Column(length = 64)
     private String IBSN;
 
-    @ManyToMany (mappedBy="libri")
+    @ManyToOne
+    private Autore autore;
+
+    @ManyToMany(mappedBy = "libri")
     private List<Genere> generi;
 
     public List<Genere> getGeneri() {
@@ -44,9 +45,6 @@ public class Libro {
     public void setAutore(Autore autore) {
         this.autore = autore;
     }
-
-    @ManyToOne
-    private Autore autore;
 
     public Long getId() {
         return id;
@@ -86,7 +84,4 @@ public class Libro {
                 + ", generi=" + generi + ", autore=" + autore + "]";
     }
 
-    
-
-    
 }

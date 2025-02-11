@@ -11,7 +11,7 @@ import com.github.redfox197.demo.database.service.GenereService;
 import com.github.redfox197.demo.database.service.LibroService;
 
 @SpringBootApplication
-public class DemoApplication implements CommandLineRunner{
+public class DemoApplication implements CommandLineRunner {
 	@Autowired
 	private AutoreService autoreService;
 	@Autowired

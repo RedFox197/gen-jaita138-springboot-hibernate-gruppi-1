@@ -15,19 +15,19 @@ public class AutoreService {
     @Autowired
     private AutoreRepo autoreRepo;
 
-    public void save(Autore autore){
+    public void save(Autore autore) {
         autoreRepo.save(autore);
     }
 
-    public void delete(Autore autore){
+    public void delete(Autore autore) {
         autoreRepo.delete(autore);
     }
 
-    public List<Autore> findAll(){
+    public List<Autore> findAll() {
         return autoreRepo.findAll();
     }
 
-    public Autore findById(Long id){
+    public Autore findById(Long id) {
         return autoreRepo.findById(id).orElse(null);
     }
 }

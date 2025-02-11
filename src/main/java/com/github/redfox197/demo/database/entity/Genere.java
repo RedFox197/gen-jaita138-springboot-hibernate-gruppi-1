@@ -9,19 +9,24 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 
-@Entity // nome
+@Entity
 public class Genere {
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(length = 64)
     private String nome;
-    
+
     @ManyToMany
     private List<Libro> libri;
+
+    public Genere() {
+    }
+
+    public Genere(String nome) {
+        this.nome = nome;
+    }
 
     public String getNome() {
         return nome;
@@ -43,14 +48,9 @@ public class Genere {
         return id;
     }
 
-    
-    public Genere(String nome) {
-        this.nome = nome;
-    }
-
     @Override
     public String toString() {
         return "Genere [nome=" + nome + ", libri=" + libri + "]";
     }
-    
+
 }
