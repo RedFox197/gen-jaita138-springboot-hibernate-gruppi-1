@@ -161,7 +161,7 @@ public class CliManager {
     }
 
     public void cercaLibriTitolo() {
-        //TODO implementare
+        // TODO implementare
     }
 
     public void cercaLibriAnno() {

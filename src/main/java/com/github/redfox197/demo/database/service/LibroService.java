@@ -11,7 +11,6 @@ import com.github.redfox197.demo.database.repository.LibroRepo;
 
 import jakarta.transaction.Transactional;
 
-
 @Service
 public class LibroService {
 
@@ -35,36 +34,33 @@ public class LibroService {
     }
 
     @Transactional
-    public List<Libro> findConGenere(){
-        List<Libro> libri= libroRepo.findAll();
-      for (Libro elemento : libri) {
-        Hibernate.initialize(elemento.getGeneri());
-        
-      }
-      return libri;
+    public List<Libro> findAllWithGenere() {
+        List<Libro> libri = libroRepo.findAll();
+        for (Libro elemento : libri) {
+            Hibernate.initialize(elemento.getGeneri());
+        }
+        return libri;
     }
 
     @Transactional
-    public List<Libro> findTutto(){
-        List<Libro> libri= libroRepo.findAll();
-      for (Libro elemento : libri) {
-        Hibernate.initialize(elemento.getGeneri());
-        Hibernate.initialize(elemento.getAutore());
-        
-      }
-      return libri;
+    public List<Libro> findAllWithGenereAndAutore() {
+        List<Libro> libri = libroRepo.findAll();
+        for (Libro elemento : libri) {
+            Hibernate.initialize(elemento.getGeneri());
+            Hibernate.initialize(elemento.getAutore());
+        }
+        return libri;
     }
 
-    public List<Libro> trovaPerP(){
+    public List<Libro> findByTitoloStartingWithP() {
         return libroRepo.findByTitoloStartingWithIgnoreCase("P");
-        
     }
 
-    public List<Libro> trovaTraAnni(){
-        return libroRepo.findByAnnoPublicazioneBetween(2000,2020);
+    public List<Libro> findByAnnoBetween() {
+        return libroRepo.findByAnnoPublicazioneBetween(2000, 2020);
     }
 
-    public List<Libro> trovaIBSN(){
+    public List<Libro> findByIBSN() {
         return libroRepo.findByIBSNIgnoreCase("978-3-16-148410-0");
     }
 
