@@ -11,7 +11,6 @@ import com.github.redfox197.demo.database.repository.AutoreRepo;
 
 import jakarta.transaction.Transactional;
 
-// TODO fare un find all che carica anche i libri
 @Service
 public class AutoreService {
 
