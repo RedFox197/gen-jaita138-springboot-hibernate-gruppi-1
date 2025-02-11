@@ -50,7 +50,7 @@ public class Genere {
 
     @Override
     public String toString() {
-        return "Genere [nome=" + nome + "]";
+        return "Genere [id=" + id + ", nome=" + nome + "]";
     }
 
 }

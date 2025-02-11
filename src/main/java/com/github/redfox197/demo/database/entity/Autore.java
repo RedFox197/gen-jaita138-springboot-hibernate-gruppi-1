@@ -1,6 +1,6 @@
 package com.github.redfox197.demo.database.entity;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,7 +23,7 @@ public class Autore {
     private String nazionalita;
 
     @OneToMany(mappedBy = "autore")
-    private ArrayList<Libro> libri;
+    private List<Libro> libri;
 
     public Long getId() {
         return id;
@@ -57,11 +57,11 @@ public class Autore {
         this.nazionalita = nazionalita;
     }
 
-    public ArrayList<Libro> getLibri() {
+    public List<Libro> getLibri() {
         return libri;
     }
 
-    public void setLibri(ArrayList<Libro> libri) {
+    public void setLibri(List<Libro> libri) {
         this.libri = libri;
     }
 
