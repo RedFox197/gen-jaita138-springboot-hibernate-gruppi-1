@@ -77,12 +77,19 @@ public class CliManager {
 
     public void leggiTuttiLibriConAutore() {
         System.out.println("I libri con gli autori: ");
-        
+        for (Libro conAutore : libroService.findConAutore()) {
+            System.out.println(conAutore);
+            System.out.println(conAutore.getAutore());
+        }
     }
 
     public void leggiTuttiLibriConAutoreEGeneri() {
         System.out.println("I libri con autori e generi: ");
-        System.out.println(libroService.findAllWithGenereAndAutore());
+        for (Libro conAutoreEGenere : libroService.findConAutore()) {
+            System.out.println(conAutoreEGenere);
+            System.out.println(conAutoreEGenere.getAutore());
+            System.out.println(conAutoreEGenere.getGeneri());
+        }
     }
 
     public void leggiTuttiAutori() {
