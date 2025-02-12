@@ -2,11 +2,14 @@ package com.github.redfox197.demo.database.service;
 
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.github.redfox197.demo.database.entity.Genere;
 import com.github.redfox197.demo.database.repository.GenereRepo;
+
+import jakarta.transaction.Transactional;
 
 // TODO fare un findall che carica anche i libri
 @Service
@@ -29,5 +32,14 @@ public class GenereService {
 
     public List<Genere> findAll() {
         return genereRepo.findAll();
+    }
+
+    @Transactional
+    public List<Genere> findAllWithBook() {
+        List<Genere> generi = genereRepo.findAll();
+        for (Genere genere : generi) {
+            Hibernate.initialize(genere.getLibri());
+        }
+        return generi;
     }
 }
