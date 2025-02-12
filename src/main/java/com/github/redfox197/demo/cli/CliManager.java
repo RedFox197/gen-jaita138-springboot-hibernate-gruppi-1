@@ -85,7 +85,7 @@ public class CliManager {
 
     public void leggiTuttiLibriConAutoreEGeneri() {
         System.out.println("I libri con autori e generi: ");
-        for (Libro conAutoreEGenere : libroService.findConAutore()) {
+        for (Libro conAutoreEGenere : libroService.findAllWithGenereAndAutore()) {
             System.out.println(conAutoreEGenere);
             System.out.println(conAutoreEGenere.getAutore());
             System.out.println(conAutoreEGenere.getGeneri());
