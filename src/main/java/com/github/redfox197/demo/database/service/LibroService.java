@@ -35,10 +35,10 @@ public class LibroService {
     }
 
     @Transactional
-    public List<Libro> findConGenere(){
+    public List<Libro> findConAutore(){
         List<Libro> libri= libroRepo.findAll();
       for (Libro elemento : libri) {
-        Hibernate.initialize(elemento.getGeneri());
+        Hibernate.initialize(elemento.getAutore());
         
       }
       return libri;
