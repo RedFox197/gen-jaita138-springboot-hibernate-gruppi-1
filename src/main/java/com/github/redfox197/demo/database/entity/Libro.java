@@ -1,5 +1,6 @@
 package com.github.redfox197.demo.database.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -28,7 +29,7 @@ public class Libro {
     private Autore autore;
 
     @ManyToMany(mappedBy = "libri")
-    private List<Genere> generi;
+    private List<Genere> generi = new ArrayList<>();
 
     public List<Genere> getGeneri() {
         return generi;
@@ -81,7 +82,7 @@ public class Libro {
     @Override
     public String toString() {
         return "Libro [id=" + id + ", titolo=" + titolo + ", annoPublicazione=" + annoPublicazione + ", IBSN=" + IBSN
-                + ", generi=" + generi + ", autore=" + autore + "]";
+                + "]";
     }
 
 }

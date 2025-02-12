@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.github.redfox197.demo.database.entity.Genere;
 
 @Repository
-public interface GenereRepo extends JpaRepository<Genere, Long>{
+public interface GenereRepo extends JpaRepository<Genere, Long> {
 
 }

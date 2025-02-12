@@ -1,5 +1,6 @@
 package com.github.redfox197.demo.cli;
 
+import java.util.List;
 import java.util.Scanner;
 
 import com.github.redfox197.demo.database.entity.Autore;
@@ -76,11 +77,11 @@ public class CliManager {
     }
 
     public void leggiTuttiLibriConAutore() {
-        // TODO implementare
+        // TODO implementare Dominic
     }
 
     public void leggiTuttiLibriConAutoreEGeneri() {
-        // TODO implementare
+        // TODO implementare Dominic
     }
 
     public void leggiTuttiAutori() {
@@ -144,16 +145,23 @@ public class CliManager {
             return;
         }
 
-        // TODO può inserire più generi
-        System.out.println("Imposta genere per il libro");
-        leggiTuttiGeneri();
+        while (true) {
+            System.out.println("Imposta genere per il libro");
+            leggiTuttiGeneri();
 
-        System.out.print("Genere id: ");
-        Genere genere = genereService.findById(scanner.nextLong());
-        scanner.nextLine();
-        if (genere == null) {
-            System.out.println("Genere non trovato!");
-            return;
+            System.out.println("Vuoi aggiungere un genere? (y/n)");
+            if (!scanner.nextLine().equalsIgnoreCase("y"))
+                break;
+
+            System.out.print("Genere id: ");
+            Genere genere = genereService.findById(scanner.nextLong());
+            scanner.nextLine();
+            if (genere == null) {
+                System.out.println("Genere non trovato!");
+                continue;
+            }
+
+            libro.getGeneri().add(genere);
         }
 
         libroService.save(libro);
@@ -161,23 +169,31 @@ public class CliManager {
     }
 
     public void cercaLibriTitolo() {
-        //TODO implementare
+        // TODO implementare Dominic
     }
 
     public void cercaLibriAnno() {
-        // TODO implementare
+        System.out.println("Libri tra il 2000 e il 2020: ");
+        System.out.println(libroService.findByAnnoBetween());
+
+        
     }
 
     public void cercaLibriISBN() {
-        // TODO implementare
+        System.out.println("Libri con ISBN:  ");
+        System.out.println(libroService.findByIBSN());
     }
 
+
     public void leggiAutoriConLibri() {
-        // TODO implementare
+        System.out.println("Autori con libri: ");
+        System.out.println(autoreService.findAllWithBook());
+       
     }
 
     public void leggiGeneriConLibri() {
-        // TODO implementare
+        System.out.println("Generi con libri: ");
+        System.out.println(genereService.findAllWithBook());
     }
 
 }
