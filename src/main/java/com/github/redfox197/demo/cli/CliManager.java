@@ -187,13 +187,19 @@ public class CliManager {
 
     public void leggiAutoriConLibri() {
         System.out.println("Autori con libri: ");
-        System.out.println(autoreService.findAllWithBook());
+        for (Autore autore : autoreService.findAllWithBook()) {
+            System.out.println(autore);
+            System.out.println(autore.getLibri());
+        }
        
     }
 
     public void leggiGeneriConLibri() {
         System.out.println("Generi con libri: ");
-        System.out.println(genereService.findAllWithBook());
+        for (Genere genere : genereService.findAllWithBook()) {
+            System.out.println(genere);
+            System.out.println(genere.getLibri());
+        }
     }
 
 }
