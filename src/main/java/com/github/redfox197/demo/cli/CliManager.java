@@ -152,6 +152,7 @@ public class CliManager {
             System.out.println("Autore non trovato!");
             return;
         }
+        libro.setAutore(autore);
 
         while (true) {
             System.out.println("Imposta genere per il libro");

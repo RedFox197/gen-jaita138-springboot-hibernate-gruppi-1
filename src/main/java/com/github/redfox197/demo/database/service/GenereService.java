@@ -25,7 +25,7 @@ public class GenereService {
         genereRepo.delete(genere);
     }
 
-    public Genere findById(long id) {
+    public Genere findById(Long id) {
         return genereRepo.findById(id).orElse(null);
     }
 

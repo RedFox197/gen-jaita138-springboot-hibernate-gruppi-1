@@ -1,5 +1,6 @@
 package com.github.redfox197.demo.database.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -18,8 +19,8 @@ public class Genere {
     @Column(length = 64)
     private String nome;
 
-    @ManyToMany
-    private List<Libro> libri;
+    @ManyToMany(mappedBy = "generi")
+    private List<Libro> libri = new ArrayList<>();
 
     public Genere() {
     }
