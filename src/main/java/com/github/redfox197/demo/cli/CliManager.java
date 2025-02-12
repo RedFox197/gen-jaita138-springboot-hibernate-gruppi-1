@@ -1,6 +1,5 @@
 package com.github.redfox197.demo.cli;
 
-import java.util.List;
 import java.util.Scanner;
 
 import com.github.redfox197.demo.database.entity.Autore;
@@ -77,11 +76,20 @@ public class CliManager {
     }
 
     public void leggiTuttiLibriConAutore() {
-        // TODO implementare Dominic
+        System.out.println("I libri con gli autori: ");
+        for (Libro conAutore : libroService.findConAutore()) {
+            System.out.println(conAutore);
+            System.out.println(conAutore.getAutore());
+        }
     }
 
     public void leggiTuttiLibriConAutoreEGeneri() {
-        // TODO implementare Dominic
+        System.out.println("I libri con autori e generi: ");
+        for (Libro conAutoreEGenere : libroService.findConAutore()) {
+            System.out.println(conAutoreEGenere);
+            System.out.println(conAutoreEGenere.getAutore());
+            System.out.println(conAutoreEGenere.getGeneri());
+        }
     }
 
     public void leggiTuttiAutori() {
@@ -169,14 +177,13 @@ public class CliManager {
     }
 
     public void cercaLibriTitolo() {
-        // TODO implementare Dominic
+        System.out.println("I titoli dei Libri che iniziano con P: ");
+        System.out.println(libroService.findByTitoloStartingWithP());
     }
 
     public void cercaLibriAnno() {
         System.out.println("Libri tra il 2000 e il 2020: ");
         System.out.println(libroService.findByAnnoBetween());
-
-        
     }
 
     public void cercaLibriISBN() {
