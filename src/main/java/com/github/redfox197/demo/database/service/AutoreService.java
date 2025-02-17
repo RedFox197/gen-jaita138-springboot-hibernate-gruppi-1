@@ -34,7 +34,7 @@ public class AutoreService {
     }
 
     @Transactional
-    public List<Autore> findAllWithBook(){
+    public List<Autore> findAllWithBook() {
         List<Autore> autori = autoreRepo.findAll();
         for (Autore autore : autori) {
             Hibernate.initialize(autore.getLibri());

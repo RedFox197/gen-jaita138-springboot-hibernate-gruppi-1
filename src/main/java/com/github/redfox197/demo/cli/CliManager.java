@@ -196,7 +196,6 @@ public class CliManager {
         libroService.findByIBSN().forEach(System.out::println);
     }
 
-
     public void leggiAutoriConLibri() {
         System.out.println("Autori con libri: ");
         for (Autore autore : autoreService.findAllWithBook()) {
@@ -204,7 +203,6 @@ public class CliManager {
             autore.getLibri().forEach(System.out::println);
             System.out.println();
         }
-       
     }
 
     public void leggiGeneriConLibri() {

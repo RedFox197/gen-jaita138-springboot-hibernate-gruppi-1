@@ -34,13 +34,13 @@ public class LibroService {
     }
 
     @Transactional
-    public List<Libro> findConAutore(){
-        List<Libro> libri= libroRepo.findAll();
-      for (Libro elemento : libri) {
-        Hibernate.initialize(elemento.getAutore());
-        
-      }
-      return libri;
+    public List<Libro> findConAutore() {
+        List<Libro> libri = libroRepo.findAll();
+        for (Libro elemento : libri) {
+            Hibernate.initialize(elemento.getAutore());
+
+        }
+        return libri;
     }
 
     @Transactional
