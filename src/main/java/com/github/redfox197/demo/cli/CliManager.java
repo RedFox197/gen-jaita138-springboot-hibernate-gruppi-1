@@ -71,7 +71,7 @@ public class CliManager {
 
     public void leggiTuttiLibri() {
         System.out.println("Libri: ");
-        System.out.println(libroService.findAll());
+        libroService.findAll().forEach(System.out::println);
         System.out.println();
     }
 
@@ -80,6 +80,7 @@ public class CliManager {
         for (Libro conAutore : libroService.findConAutore()) {
             System.out.println(conAutore);
             System.out.println(conAutore.getAutore());
+            System.out.println();
         }
     }
 
@@ -89,18 +90,19 @@ public class CliManager {
             System.out.println(conAutoreEGenere);
             System.out.println(conAutoreEGenere.getAutore());
             System.out.println(conAutoreEGenere.getGeneri());
+            System.out.println();
         }
     }
 
     public void leggiTuttiAutori() {
         System.out.println("Autori: ");
-        System.out.println(autoreService.findAll());
+        autoreService.findAll().forEach(System.out::println);
         System.out.println();
     }
 
     public void leggiTuttiGeneri() {
         System.out.println("Generi: ");
-        System.out.println(genereService.findAll());
+        genereService.findAll().forEach(System.out::println);
         System.out.println();
     }
 
@@ -116,7 +118,7 @@ public class CliManager {
         autore.setNazionalita(scanner.nextLine());
 
         autoreService.save(autore);
-        System.out.println("Autore Salvato!");
+        System.out.println("Autore Salvato!\n");
     }
 
     public void aggiungiGenere() {
@@ -127,7 +129,7 @@ public class CliManager {
         genere.setNome(scanner.nextLine());
 
         genereService.save(genere);
-        System.out.println("Genere Salvato!");
+        System.out.println("Genere Salvato!\n");
     }
 
     public void aggiungiLibro() {
@@ -179,17 +181,19 @@ public class CliManager {
 
     public void cercaLibriTitolo() {
         System.out.println("I titoli dei Libri che iniziano con P: ");
-        System.out.println(libroService.findByTitoloStartingWithP());
+        libroService.findByTitoloStartingWithP().forEach(System.out::println);
+        System.out.println();
     }
 
     public void cercaLibriAnno() {
         System.out.println("Libri tra il 2000 e il 2020: ");
-        System.out.println(libroService.findByAnnoBetween());
+        libroService.findByAnnoBetween().forEach(System.out::println);
+        System.out.println();
     }
 
     public void cercaLibriISBN() {
         System.out.println("Libri con ISBN:  ");
-        System.out.println(libroService.findByIBSN());
+        libroService.findByIBSN().forEach(System.out::println);
     }
 
 
@@ -197,7 +201,8 @@ public class CliManager {
         System.out.println("Autori con libri: ");
         for (Autore autore : autoreService.findAllWithBook()) {
             System.out.println(autore);
-            System.out.println(autore.getLibri());
+            autore.getLibri().forEach(System.out::println);
+            System.out.println();
         }
        
     }
@@ -206,7 +211,8 @@ public class CliManager {
         System.out.println("Generi con libri: ");
         for (Genere genere : genereService.findAllWithBook()) {
             System.out.println(genere);
-            System.out.println(genere.getLibri());
+            genere.getLibri().forEach(System.out::println);
+            System.out.println();
         }
     }
 

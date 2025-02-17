@@ -28,7 +28,7 @@ public class Libro {
     @ManyToOne
     private Autore autore;
 
-    @ManyToMany()
+    @ManyToMany
     private List<Genere> generi = new ArrayList<>();
 
     public List<Genere> getGeneri() {
